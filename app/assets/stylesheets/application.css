@@ -8,3 +8,17 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+body {
+  background-color: black;
+  color: white;
+}
+
+a {
+  color: lightblue;
+}
+
+input, textarea, select {
+  background-color: #222;
+  color: white;
+  border: 1px solid #555;
+}
