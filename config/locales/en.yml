@@ -26,6 +26,8 @@
 #     en:
 #       "yes": yup
 #       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      create: "Criar %{model}"
+      update: "Confirma mudanca do %{model}"

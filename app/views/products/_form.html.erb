@@ -1,12 +1,12 @@
 <%= form_with(model: product) do |form| %>
   <% if product.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <!--<h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>-->
 
       <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
+        <!--<% product.errors.each do |error| %>-->
+          <!--<li><%= error.full_message %></li>-->
+        <!--<% end %>-->
       </ul>
     </div>
   <% end %>
@@ -14,8 +14,16 @@
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <% @product.errors.full_messages_for(:name).each do |mesage|%>
+    <div><%= mesage %> <div>
+    <%end%>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+    <% @product.errors.full_messages_for(:body).each do |mesage|%>
+    <div><%= mesage %> <div>
+    <%end%>
+    <%= form.label :status %>
+    <%= form.select :status, Product.statuses.keys.map {|s| [s.titleize, s]}%>
   </div>
 
   <div>

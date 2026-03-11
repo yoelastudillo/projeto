@@ -1,11 +1,18 @@
 <div id="<%= dom_id product %>">
   <div>
-    <strong>Name:</strong>
+    <% if current_page?(product_path(product)) %> <!-- caca revisa que si esta en el path de un producto puntual, entonces trae toda la informacion de ese producto. caso estuviera en el pat principal, solo trae el nombre y genera un link  -->
     <%= product.name %>
     <%= product.body %>
     <%= product.id %>
     <%= product.created_at %>
     <%= product.updated_at %>
+    <%= product.status %>
+    <% else %>
+    <%= link_to product.name, product %>
+    <%= product.body %>
+    <%= product.status %>
+    <% end %>
+
   </div>
 
 </div>
