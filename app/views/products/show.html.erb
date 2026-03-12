@@ -3,10 +3,12 @@
 <%= render @product %>
 
 <div>
-  <%= button_to "Edit this product", edit_product_path(@product), method: :get, data: {turbo_confirm: "are you sure? "}%>
-  <%= button_to "Back to products (Button)", products_path, method: :get  %>
-  <%= link_to "Back to products (Link)", products_path %>
-  <%= button_to "Destroy this product", @product, method: :delete, data: {confirm: "are you sure? "}%>
+  <%= link_to"Edit", edit_product_path(@product), method: :get, class: "btn btn-secondary"  %>
+  <%= button_to "Delete", @product,form: { style: "display:inline;" }, method: :delete, data: {turbo_confirm: "Quere apagar o registro?"}, class: "btn btn-secondary" %>
+  <%= link_to "Voltar ao índice", products_path,
+  class: "btn btn-secondary",
+  title: "Voltar ao índice",
+  data: { bs_toggle: "tooltip", bs_placement: "auto" }%>
 </div>
 
 
