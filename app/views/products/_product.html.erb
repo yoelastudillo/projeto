@@ -1,18 +1,15 @@
-<div id="<%= dom_id product %>">
-  <div>
-    <% if current_page?(product_path(product)) %> <!-- caca revisa que si esta en el path de un producto puntual, entonces trae toda la informacion de ese producto. caso estuviera en el pat principal, solo trae el nombre y genera un link  -->
-    <%= product.name %>
-    <%= product.body %>
-    <%= product.id %>
-    <%= product.created_at %>
-    <%= product.updated_at %>
-    <%= product.status %>
-    <% else %>
-    <%= link_to product.name, product %>
-    <%= product.body %>
-    <%= product.status %>
-    <% end %>
-
+<div id="<%= dom_id product%>">
+  <div class="col-md-4">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">
+        <%= current_page?(product_path(product)) ? product.name : link_to(product.name, product) %>
+        </h5>
+        <p> 
+          <%= product.body %>
+          <%= product.status %>
+        </p>
+      </div>
+    </div>
   </div>
-
 </div>

@@ -2,13 +2,13 @@
 
 <% content_for :title, "Products" %>
 
-<h1>Products</h1>
-
-<div id="products">
-  <% @products.each do |product| %>
+<div>
+  <h1>Cards</h1>
+  <div class="column">
+    <% @products.each do |product| %>
     <%= render partial: "products/product", locals: { product: product } %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
-<%= button_to "New product(Button)", new_product_path, method: :get %>
-<%= link_to "New product(Link)", new_product_path%>
+  <%#= button_to "New product(Button)", new_product_path, method: :get %>
+<%= link_to "New product", new_product_path, class: "btn btn-primary" %>
