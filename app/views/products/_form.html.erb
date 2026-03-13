@@ -1,15 +1,4 @@
 <%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <!--<h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>-->
-
-      <ul>
-        <!--<% product.errors.each do |error| %>-->
-          <!--<li><%= error.full_message %></li>-->
-        <!--<% end %>-->
-      </ul>
-    </div>
-  <% end %>
 
   <div>
     <%= form.label :name, style: "display: block" %>
@@ -17,17 +6,17 @@
     <% @product.errors.full_messages_for(:name).each do |mesage|%>
     <div><%= mesage %> <div>
     <%end%>
-    <%= form.label :body %>
+    <%= form.label :body, style: "display: block" %>
     <%= form.text_area :body %>
     <% @product.errors.full_messages_for(:body).each do |mesage|%>
     <div><%= mesage %> <div>
     <%end%>
-    <%= form.label :status %>
+    <%= form.label :status, style: "display: block" %>
     <%= form.select :status, Product.statuses.keys.map {|s| [s.titleize, s]}%>
-  </div>
 
-  <div>
-    <%= form.submit class: "btn btn-secondary"%> 
+    <div><%= form.submit class: "btn btn-secondary"%> 
+        <%= link_to "Voltar ao índice", products_path, class: "btn btn-secondary", data: { bs_toggle: "tooltip", bs_placement: "auto" }%>
+        <div>
     <!--esta linea aqui, varia en relacion a si el formulario esta dentro del archivo _new o del archivo _edit con la funcion form_width y el activerecord del freamwork -->
   </div>
 <% end %>
