@@ -2,10 +2,6 @@
 <h1>index.html.erb</h1>
 
   <div class="column">
-    <% @products.each do |product| %>
-    <%= render partial: "products/product", locals: { product: product } %>
-    <% end %>
+    <%= render @products%>
   </div>
-
-  <%#= button_to "New product(Button)", new_product_path, method: :get %>
-<%= link_to "New product", new_product_path, class: "btn btn-secondary" %>
+<%= link_to "Nova card", new_product_path, class: "btn btn-secondary" %>

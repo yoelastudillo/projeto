@@ -1,17 +1,16 @@
 <div id="<%= dom_id product%>">
   <h1>_product.html.erb</h1>
-  <div class="col-md-4">
-    <div class="card mb-3">
-      <div class="card-body">
+
+  <%= render 'card' do%>
+  <%= link_to product_path(product), class: "text-decoration-none text-dark" do %>
         <h5 class="card-title">
         <%= current_page?(product_path(product)) ? product.name : link_to(product.name, product) %>
         </h5>
         <p> 
-          <%= product.body %>
+          <%= truncate(product.body, length:30) %>
           <%= product.status %>
-          <%= month_day_year(product.created_at) %>
+          <%= format_date(product.created_at) %>
         </p>
-      </div>
-    </div>
-  </div>
+  <%end%>
+  <%end%>
 </div>

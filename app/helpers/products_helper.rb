@@ -1,5 +1,5 @@
 module ProductsHelper
-  def month_day_year(datetime)
-    datetime.strftime("%B %e, %Y")
+  def format_date(datetime)
+    datetime.strftime("%d/%m/%Y")
   end
 end
