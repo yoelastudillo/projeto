@@ -17,6 +17,6 @@ task :close do
   print 'Mensaje del commit:'
   msg = gets.chomp
   sh 'git add .'
-  sh 'git commit -m "#{msg}"'
+  sh "git commit -m '#{msg}'"
   sh 'git push'
 end
