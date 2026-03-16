@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "products#index"
   resources :products
+  get "/leafjet", to: "leafjet#index"
 end
 
 # get '/articles', to: 'articles#index'

@@ -1,0 +1,15 @@
+ <div id="map" style="height: 500px; width: 400px;"></div>
+<script>
+  var map = L.map('map').setView([-3.8, -38.54], 11);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.marker([-3.8, -38.54]).addTo(map)
+    .bindPopup('Popup ok')
+    .openPopup();
+  // Your JavaScript code here
+</script>
+
+<!-- https://youtu.be/ANHdq1D205A?t=524 -->
