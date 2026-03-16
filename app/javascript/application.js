@@ -10,3 +10,15 @@ document.addEventListener("turbo:load", () => {
   document.querySelectorAll('[data-bs-toggle="tooltip"]')
     .forEach(el => new bootstrap.Tooltip(el))
 })
+
+
+document.addEventListener("turbo:load", () => {
+  if (document.querySelector("[data-intro]")) {
+    introJs().setOptions({
+      nextLabel: "Siguiente",
+      prevLabel: "Anterior",
+      doneLabel: "Terminar",
+      showProgress: true
+    }).start();
+  }
+});

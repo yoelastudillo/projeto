@@ -4,4 +4,44 @@
   <div class="column">
     <%= render @products%>
   </div>
+
+  <div class="form-actions">
 <%= link_to "Nova card", new_product_path, class: "btn btn-secondary" %>
+  </div>
+    <%= render "pagination" %>
+
+
+<h1 data-step="1" data-intro="Esta es la página de productos">
+  Productos
+</h1>
+
+<div class="card"
+     data-step="2"
+     data-title="Lista de productos"
+     data-intro="Aquí puedes ver todos los productos registrados">
+
+  <table class="table">
+    <tr>
+      <th data-step="3" data-intro="Aquí está el nombre del producto">
+        Nombre
+      </th>
+      <th>Precio</th>
+    </tr>
+
+    <tr>
+      <td>Mouse</td>
+      <td>$10</td>
+    </tr>
+  </table>
+
+</div>
+
+<button class="btn btn-primary"
+        data-step="4"
+        data-intro="Este botón permite crear un nuevo producto">
+  Nuevo producto
+</button>
+
+<button onclick="introJs().start()" class="btn btn-info">
+  Mostrar tutorial
+</button>

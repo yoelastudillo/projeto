@@ -1,21 +1,13 @@
-<%= form_with(model: product) do |form| %>
-<%render 'card' do%>
+<%= simple_form_for product do |f| %>
+<%render 'card' do %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-    <% @product.errors.full_messages_for(:name).each do |mesage|%>
-    <div><%= mesage %> <div>
-    <%end%>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
-    <% @product.errors.full_messages_for(:body).each do |mesage|%>
-    <div><%= mesage %> <div>
-    <%end%>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.select :status, Product.statuses.keys.map {|s| [s.titleize, s]}%>
+    <%= f.input :name, style: "display: block" %>
+    <%= f.input :body %>
+    <%= f.input :status, collection: Product.statuses.keys %>
 
-    <div class="form-actions"><%= form.submit class: "btn btn-secondary"%> 
+    <div class="form-actions">
+        <%= f.button :submit, class: "btn btn-secondary"%> 
         <%= link_to "Voltar ao índice", products_path, class: "btn btn-secondary", data: { bs_toggle: "tooltip", bs_placement: "auto" }%>
         <div>
     <!--esta linea aqui, varia en relacion a si el formulario esta dentro del archivo _new o del archivo _edit con la funcion form_width y el activerecord del freamwork -->
