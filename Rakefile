@@ -10,7 +10,7 @@ task :dev do
   sh "bundle install"
   sh "rails db:prepare"
   sh "rails db:seed:replant" # replant borra los datos de la base de datos y vuelve a ejecutar las semillas, útil para mantener la base de datos actualizada con los cambios en las semillas sin perder datos importantes
-  exec "bin/dev"
+  sh "rails s"
 end
 
 task :close do

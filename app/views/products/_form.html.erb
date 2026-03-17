@@ -2,16 +2,31 @@
 <%render 'card' do %>
 
   <div>
-    <%= f.input :name, style: "display: block" %>
-    <%= f.input :body %>
-    <%= f.input :status, collection: Product.statuses.keys %>
+    <!--<h1 data-title="hola" data-intro="hoal probando"> </h1>-->
+    <%#= f.input :name, style: "display: block", wrapper_html: { data: {step:3, title: "Nombre", intro: "nao esquesa o nome!" } }%>
+    <%#= f.input :body, wrapper_html: { data: {step:1, title: "Body", intro: "Ingresa el body" } }%>
+    <%#= f.input :status, collection: Product.statuses.keys, wrapper_html: { data: {step:2, title: "Categoria", intro: "Elige una categoria" } } %>
+
+    <%= f.input :name%>
+    <%= f.input :body%>
+    <%= f.input :status%>
+
+
+
 
     <div class="form-actions">
         <%= f.button :submit, class: "btn btn-secondary"%> 
         <%= link_to "Voltar ao índice", products_path, class: "btn btn-secondary", data: { bs_toggle: "tooltip", bs_placement: "auto" }%>
         <div>
     <!--esta linea aqui, varia en relacion a si el formulario esta dentro del archivo _new o del archivo _edit con la funcion form_width y el activerecord del freamwork -->
+
+
+<button type="button" class="btn btn-info" onclick="introJs().setOptions()">
+  Ver tutorial
+</button>
+
   </div>
+
 
 <%end%> 
 <% end %>

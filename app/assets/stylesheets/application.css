@@ -26,3 +26,7 @@ input, textarea, select {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.introjs-tooltip {
+  color: #000;
+}
