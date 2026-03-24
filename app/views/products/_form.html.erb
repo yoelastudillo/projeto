@@ -1,7 +1,8 @@
+<%= current_name_file %>
 <%= simple_form_for product do |f| %>
-<%render 'card' do %>
+<%= render 'card' do %>
 
-  <div>
+  <div data-step="1" data-intro="Este es el titulo">
     <!--<h1 data-title="hola" data-intro="hoal probando"> </h1>-->
     <%#= f.input :name, style: "display: block", wrapper_html: { data: {step:3, title: "Nombre", intro: "nao esquesa o nome!" } }%>
     <%#= f.input :body, wrapper_html: { data: {step:1, title: "Body", intro: "Ingresa el body" } }%>
@@ -9,7 +10,7 @@
 
     <%= f.input :name%>
     <%= f.input :body%>
-    <%= f.input :status%>
+    <%= f.input :status, collection: Product.statuses.keys %>
 
 
 
@@ -20,13 +21,5 @@
         <div>
     <!--esta linea aqui, varia en relacion a si el formulario esta dentro del archivo _new o del archivo _edit con la funcion form_width y el activerecord del freamwork -->
 
-
-<button type="button" class="btn btn-info" onclick="introJs().setOptions()">
-  Ver tutorial
-</button>
-
-  </div>
-
-
-<%end%> 
+<% end %> 
 <% end %>

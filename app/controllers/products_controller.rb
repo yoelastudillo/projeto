@@ -3,8 +3,10 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    current_page = (params[:page] || 1).to_i
-    @products = Product.desc_order.page(current_page)
+     # current_page = (params[:page] || 1).to_i
+     # @products = Product.desc_order.page(current_page)
+     # @products = Product.all
+     @products_grouped = Product.all.group_by(&:status)
   end
 
   # GET /products/1 or /products/1.json

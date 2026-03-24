@@ -1,16 +1,12 @@
-<div id="<%= dom_id product%>">
-  <h1>_product.html.erb</h1>
+<% content = capture do %>
+  <%= render "card" do %>
+    <h5><%= product.name %></h5>
+    <%= truncate(product.body, length:30) %>
+    <br>
+    <%= product.status %>
+    <%= format_date(product.created_at) %>
+  <% end %>
+<% end %>
 
-  <%= render 'card' do%>
-  <%= link_to product_path(product), class: "text-decoration-none text-dark" do %>
-        <h5 class="card-title">
-        <%= current_page?(product_path(product)) ? product.name : link_to(product.name, product) %>
-        </h5>
-        <p> 
-          <%= truncate(product.body, length:30) %>
-          <%= product.status %>
-          <%= format_date(product.created_at) %>
-        </p>
-  <%end%>
-  <%end%>
-</div>
+<%= current_page?(product) ? content : link_to(product, class: "text-decoration-none text-dark") { content } %>
+
